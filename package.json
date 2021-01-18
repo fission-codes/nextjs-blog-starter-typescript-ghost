@@ -1,5 +1,5 @@
 {
-  "name": "blog-starter-typescript",
+  "name": "nextjs-blog-starter-typescript-ghost",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
