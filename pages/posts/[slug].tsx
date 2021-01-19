@@ -11,6 +11,7 @@ import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
+import { getSingleGhostPost } from '../../lib/ghost'
 
 type Props = {
   post: PostType
@@ -62,25 +63,32 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
-  const content = await markdownToHtml(post.content || '')
+  let post
 
-  return {
-    props: {
-      post: {
-        ...post,
-        content,
-      },
-    },
+  const ghostPost = await getSingleGhostPost(params.slug)
+
+  if (ghostPost) {
+    post = ghostPost
+  } else {
+    const markdownFilePost = getPostBySlug(params.slug, [
+      'title',
+      'date',
+      'slug',
+      'author',
+      'content',
+      'ogImage',
+      'coverImage',
+    ])
+    const content = await markdownToHtml(markdownFilePost.content || '')
+
+    const markdownFilePostToHtml = {
+      ...markdownFilePost,
+      content,
+    }
+    post = markdownFilePostToHtml
   }
+
+  return { props: { post } }
 }
 
 export async function getStaticPaths() {
