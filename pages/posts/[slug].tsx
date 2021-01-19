@@ -81,11 +81,11 @@ export async function getStaticProps({ params }: Params) {
     ])
     const content = await markdownToHtml(markdownFilePost.content || '')
 
-    const markdownFilePostToHtml = {
+    const markdownFilePostAsHtml = {
       ...markdownFilePost,
       content,
     }
-    post = markdownFilePostToHtml
+    post = markdownFilePostAsHtml
   }
 
   return { props: { post } }
