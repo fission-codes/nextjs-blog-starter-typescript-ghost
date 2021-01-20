@@ -68,6 +68,7 @@ export async function getStaticProps({ params }: Params) {
   const ghostPost = await getSingleGhostPost(params.slug)
 
   if (ghostPost) {
+    ghostPost.content = ghostPost.html
     post = ghostPost
   } else {
     const markdownFilePost = getPostBySlug(params.slug, [
