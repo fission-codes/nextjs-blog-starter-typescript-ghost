@@ -5,13 +5,16 @@ import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
+import {
+  getPostBySlug as getMarkdownFilePostBySlug,
+  getAllPosts as getAllMarkdownFilePosts,
+} from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
-import { getSingleGhostPost } from '../../lib/ghost'
+import { getAllGhostPosts, getSingleGhostPost } from '../../lib/ghost'
 
 type Props = {
   post: PostType
@@ -65,13 +68,15 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   let post
 
+  console.log({ params })
+
   const ghostPost = await getSingleGhostPost(params.slug)
 
   if (ghostPost) {
     ghostPost.content = ghostPost.html
     post = ghostPost
   } else {
-    const markdownFilePost = getPostBySlug(params.slug, [
+    const markdownFilePost = getMarkdownFilePostBySlug(params.slug, [
       'title',
       'date',
       'slug',
@@ -93,7 +98,11 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const allMarkdownFilePosts = getAllMarkdownFilePosts(['slug'])
+
+  const allGhostPosts = (await getAllGhostPosts()) || []
+
+  const posts = [...allMarkdownFilePosts, ...allGhostPosts]
 
   return {
     paths: posts.map((posts) => {
