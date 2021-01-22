@@ -68,8 +68,6 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   let post
 
-  console.log({ params })
-
   const ghostPost = await getSingleGhostPost(params.slug)
 
   if (ghostPost) {
