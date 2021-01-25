@@ -2,11 +2,11 @@
 
 name: CD
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,4 +28,9 @@ jobs:
           node-version: 12
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
-      - run: yarn build
+      # Build next.js website into static files
+      - name: Build Next.js website
+        env:
+          GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
+          GHOST_API_KEY: ${{ secrets.GHOST_API_KEY }}
+        run: yarn build
