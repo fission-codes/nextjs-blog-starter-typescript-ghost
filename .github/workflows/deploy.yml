@@ -34,3 +34,6 @@ jobs:
           GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
           GHOST_API_KEY: ${{ secrets.GHOST_API_KEY }}
         run: yarn build
+      - uses: fission-suite/publish-action@v1
+        with:
+          machine_key: ${{ secrets.FISSION_KEY }}
