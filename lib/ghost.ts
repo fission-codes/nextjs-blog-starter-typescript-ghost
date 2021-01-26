@@ -13,13 +13,19 @@ const api = new GhostContentApi({ url, key, version: 'v3' })
 export async function getAllGhostPosts() {
   return await api.posts
     .browse({ include: ['tags', 'authors'], limit: 'all' })
-    .then((posts) => {
-      posts.forEach((post: any) => {
+    .then((posts: any) => {
+      posts = posts.map((post: any) => {
         const author = {
           name: post.primary_author?.name,
           picture: post.primary_author?.profile_image,
         }
-        post.author = author
+        post = {
+          ...post,
+          ogImage: post.feature_image || null,
+          coverImage: post.feature_image || null,
+          author,
+        }
+        return post
       })
       return posts
     })
@@ -35,7 +41,12 @@ export async function getSingleGhostPost(postSlug: string) {
           name: post.primary_author?.name,
           picture: post.primary_author?.profile_image,
         }
-        post.author = author
+        post = {
+          ...post,
+          ogImage: post.feature_image || null,
+          coverImage: post.feature_image || null,
+          author,
+        }
         return post
       })
       .catch((err) => {
