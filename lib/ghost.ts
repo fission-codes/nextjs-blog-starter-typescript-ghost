@@ -23,6 +23,7 @@ export async function getAllGhostPosts() {
           ...post,
           ogImage: post.feature_image || null,
           coverImage: post.feature_image || null,
+          date: post.updated_at || null,
           author,
         }
         return post
@@ -45,6 +46,7 @@ export async function getSingleGhostPost(postSlug: string) {
           ...post,
           ogImage: post.feature_image || null,
           coverImage: post.feature_image || null,
+          date: post.updated_at || null,
           author,
         }
         return post
