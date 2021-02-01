@@ -1,8 +1,8 @@
 # 👻 Headless Ghost with Next.js on Fission
 
-This starter is based on the official Next.js
+This starter is based on the official
 [blog-starter-typescript](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript)
-[Next.js](https://nextjs.org).
+from [Next.js](https://nextjs.org).
 
 We changed only enough to make it possible to fetch and publish blog posts from
 the Ghost CMS, while keeping the ability to write Markdown files in the git
