@@ -2,7 +2,7 @@
   "name": "nextjs-blog-starter-typescript-ghost",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
     "ghost-local-create": "docker run -d --name ghost-for-nextjs -p 3001:2368 -v $PWD/ghost:/var/lib/ghost/content -e url=http://localhost:3001 ghost",
