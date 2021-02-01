@@ -5,6 +5,10 @@
     "dev": "next",
     "build": "next build && next export",
     "start": "next start",
+    "ghost-local-create": "docker run -d --name ghost-for-nextjs -p 3001:2368 -v $PWD/ghost:/var/lib/ghost/content -e url=http://localhost:3001 ghost",
+    "ghost-local-start": "docker container start ghost-for-nextjs",
+    "ghost-local-stop": "docker container stop ghost-for-nextjs",
+    "ghost-local-remove": "docker container stop ghost-for-nextjs; docker container rm ghost-for-nextjs",
     "typecheck": "tsc"
   },
   "dependencies": {
