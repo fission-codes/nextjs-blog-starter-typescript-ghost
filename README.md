@@ -13,7 +13,7 @@ Fission. It works automatically on pushes to the git repo, and can be triggered
 manually after updating the content on Ghost. (The default Ghost webhook isn't
 customizable to trigger a GitHub Action, but that can be added as a plugin.)
 
-The Markdown blog posts are stored in `/_posts` as files with front matter
+The Markdown blog posts are stored in `/_posts` as files with frontmatter
 support. Adding a new Markdown file in there will create a new blog post.
 
 The Ghost blog posts are fetched using Ghost's Content API library.
@@ -91,7 +91,7 @@ GHOST_API_KEY=2a9356e4a5214c883ba886e58e
 ⚠️ _This file is ignored by git by default. **Don't** commit `env.local` to git
 unless you know what you're doing._
 
-Alright! Ghost part done.
+Alright! Ghost part's done.
 
 ### 💻 Running Next.js locally
 
@@ -108,9 +108,9 @@ happens, please post an
 [issue](https://github.com/fission-suite/nextjs-blog-starter-typescript-ghost/issues/new).)_
 
 Now you can change the Next.js website code and the content on Ghost and
-iterate quickly on it in the browser. _Note: live-reload works for Next.js code
-and Markdown files; to see changes to Ghost content you need to refresh the
-page._
+iterate quickly on them in the browser. _Note: live-reload works for Next.js
+code and Markdown files; to see changes to Ghost content you need to refresh
+the page._
 
 ### 🌐 Deploying to Fission
 
