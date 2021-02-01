@@ -4,9 +4,9 @@ This starter is based on the official
 [blog-starter-typescript](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript)
 from [Next.js](https://nextjs.org).
 
-We changed only enough to make it possible to fetch and publish blog posts from
-the Ghost CMS, while keeping the ability to write Markdown files in the git
-repo. It's a purely additive change.
+We changed it only enough to make it possible to fetch and publish blog posts
+from the Ghost CMS, while keeping the ability to write Markdown files in the
+git repo. It's a purely additive change.
 
 There's also a GitHub Action to build and publish the static website to
 Fission. It works automatically on pushes to the git repo, and can be triggered
