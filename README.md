@@ -1,4 +1,4 @@
-# 👻 Headless Ghost with Next.js on Fission
+# 👻&nbsp;&nbsp;Headless Ghost with Next.js on Fission
 
 This starter is based on the official
 [blog-starter-typescript](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript)
@@ -18,7 +18,7 @@ support. Adding a new Markdown file in there will create a new blog post.
 
 The Ghost blog posts are fetched using Ghost's Content API library.
 
-## ✨ Getting Started
+## ✨&nbsp;&nbsp;Getting Started
 
 - Click on **Use this template**
 - Clone the repo
@@ -28,7 +28,7 @@ The Ghost blog posts are fetched using Ghost's Content API library.
 All command-line instructions and directory paths from now on assume the
 current directory is the root of the cloned repo.
 
-### 👻 Setting Up Ghost
+### 👻&nbsp;&nbsp;Setting Up Ghost
 
 #### Public or Local Ghost?
 
@@ -93,7 +93,7 @@ unless you know what you're doing._
 
 Alright! Ghost part's done.
 
-### 💻 Running Next.js locally
+### 💻&nbsp;&nbsp;Running Next.js locally
 
 Next.js is the missing static website _head_ to our *head*less Ghost. Let's
 stitch them together! This should be enough:
@@ -112,7 +112,7 @@ iterate quickly on them in the browser. _Note: live-reload works for Next.js
 code and Markdown files; to see changes to Ghost content you need to refresh
 the page._
 
-### 🌐 Deploying to Fission
+### 🌐&nbsp;&nbsp;Deploying to Fission
 
 When you're ready to publish, the first step is exporting your website to a set
 of static files:
@@ -178,11 +178,11 @@ the Fission CLI or at `my-beautiful-subdomain.fission.app` if you used the
 
 TBD
 
-## 🙏 Show your support
+## 🙏&nbsp;&nbsp;Show your support
 
 Please give a ⭐️ if you liked this project!
 
-## 📝 License
+## 📝&nbsp;&nbsp;License
 
 <sup>
 Licensed under either of <a href="LICENSE-APACHE">Apache License, Version
