@@ -234,11 +234,12 @@ when you set it up. Here's how you get it:
 cat ~/.config/fission/key/machine_id.ed25519 | base64
 ```
 
-With all 3 values in hand, go to the "Settings" > "Secrets" screen on your
-GitHub repo, then create a secret for each of them. That should be enough.
+With all 3 values in hand, go to the **"Settings" > "Secrets"** screen on your
+GitHub repo, then create a **"New repository secret"** for each of them. That
+should be enough.
 
-You can trigger the `deploy` action manually by clicking on "Run workflow" >
-"Run workflow", or see it in action after your next `git push`.
+You can trigger the `deploy` action manually by clicking on **"Run workflow" >
+"Run workflow"**, or see it in action after your next `git push`.
 
 > Why **"(semi-)**" automatic then? 🤔
 
@@ -269,6 +270,12 @@ to this starter:
 ```
 GITHUB_USER=your-username GITHUB_REPO=your-repo GITHUB_AUTH_TOKEN=your-auth-token trigger-github-deploy-action.sh
 ```
+
+Here's how you can get an
+[auth token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+
+This situation is definitely not ideal, and can be solved with Ghost plugins,
+but we wanted to stick to the basic install.
 
 ## 🙏&nbsp;&nbsp;Show your support
 
