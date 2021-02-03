@@ -166,7 +166,7 @@ To install the Fission command-line interface using brew, run:
 
 ```bash
 brew tap fission-suite/fission
-brew install fission
+brew install fission-cli
 ```
 
 For more ways of installing the Fission CLI, please check the
