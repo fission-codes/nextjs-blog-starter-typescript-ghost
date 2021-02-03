@@ -244,8 +244,8 @@ next `git push`.
 
 Note:
 
-⚠️&nbsp;To fetch the content from Ghost, **the GitHub Action must be able to
-access the URL** entered in the `GHOST_API_URL` secret.
+⚠️&nbsp;&nbsp;To fetch the content from Ghost, **the GitHub Action must be able
+to access the URL** entered in the `GHOST_API_URL` secret.
 
 If you are running a local Ghost instance on your machine,
 `http://localhost:3001` won't be visible to the outside.
@@ -261,9 +261,9 @@ With ngrok you do something like this:
 ngrok http 3001
 ```
 
-⚠️&nbsp;This is great for testing, but **not secure**. Look into using `https`
-if you're going to rely on this and don't want your Ghost API key and data to
-leak.
+⚠️&nbsp;&nbsp;This is great for testing, but **not secure**. Look into using
+`https` if you're going to rely on this and don't want your Ghost API key and
+data to leak.
 
 ---
 
@@ -279,12 +279,13 @@ a way of finding out about it so it can run the deploy action. There's no
 [**webhook**](https://docs.github.com/en/rest/reference/actions#create-a-workflow-dispatch-event)
 (i.e. a POST request you send to a GitHub API URL.)
 
-🙂 Luckily, Ghost comes with the built-in ability to send webhooks when content
-changes happen.
+🙂&nbsp;&nbsp;Luckily, Ghost comes with the built-in ability to send webhooks
+when content changes happen.
 
-🙃 ***Un*luckily**, though, Ghost doesn't let you customize the payload that
-goes in the webhook requests it sends, and GitHub **requires** a certain field
-to be present telling it which `ref` (usually a branch) you are referring to.
+🙃&nbsp;&nbsp;***Un*luckily**, though, Ghost doesn't let you customize the
+payload that goes in the webhook requests it sends, and GitHub **requires** a
+certain field to be present telling it which `ref` (usually a branch) you are
+referring to.
 
 Bottom line: **after changing things _on Ghost_, you need to trigger a build
 manually**.
