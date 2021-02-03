@@ -218,14 +218,16 @@ If you don't want to run the build locally and deploy to Fission every time you
 make a change to the Next.js code or Markdown files (who does?), this starter
 comes with **a GitHub Action that automates that for you**.
 
-To get it working you need to set up 3 secrets for your repo:
+To get it working you need to set up 3 secrets for your repo. To do that, go to
+the **"Settings" > "Secrets"** screen on your GitHub repo, then create a **"New
+repository secret"** for each of these:
 
 - `GHOST_API_URL`
 - `GHOST_API_KEY`
 - `FISSION_KEY`
 
-The Ghost API fields are the same ones you used for the `.env.local` file
-above.
+The values for the `GHOST_API_` fields are the same ones you used for the
+`.env.local` file above.
 
 The `FISSION_KEY` was created and stored locally for you by the Fission CLI
 when you set it up. Here's how you get it:
@@ -234,12 +236,36 @@ when you set it up. Here's how you get it:
 cat ~/.config/fission/key/machine_id.ed25519 | base64
 ```
 
-With all 3 values in hand, go to the **"Settings" > "Secrets"** screen on your
-GitHub repo, then create a **"New repository secret"** for each of them. That
-should be enough.
+With all 3 secrets set up, you can trigger the `deploy` action manually by
+clicking on **"Run workflow" > "Run workflow"**, or see it in action after your
+next `git push`.
 
-You can trigger the `deploy` action manually by clicking on **"Run workflow" >
-"Run workflow"**, or see it in action after your next `git push`.
+---
+
+Note:
+
+⚠️&nbsp;To fetch the content from Ghost, **the GitHub Action must be able to
+access the URL** entered in the `GHOST_API_URL` secret.
+
+If you are running a local Ghost instance on your machine,
+`http://localhost:3001` won't be visible to the outside.
+
+A simple way of exposing your local Ghost instance to a publicly-accessible URL
+is by using one of the
+[open source alternatives to ngrok](https://github.com/anderspitman/awesome-tunneling)
+or [ngrok](TBD) itself.
+
+With ngrok you do something like this:
+
+```
+ngrok http 3001
+```
+
+⚠️&nbsp;This is great for testing, but **not secure**. Look into using `https`
+if you're going to rely on this and don't want your Ghost API key and data to
+leak.
+
+---
 
 > Why **"(semi-)**" automatic then? 🤔
 
