@@ -253,7 +253,7 @@ If you are running a local Ghost instance on your machine,
 A simple way of exposing your local Ghost instance to a publicly-accessible URL
 is by using one of the
 [open source alternatives to ngrok](https://github.com/anderspitman/awesome-tunneling)
-or [ngrok](TBD) itself.
+or [ngrok](https://ngrok.com/) itself.
 
 With ngrok you do something like this:
 
