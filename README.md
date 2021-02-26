@@ -3,8 +3,9 @@
 - [👻&nbsp;&nbsp;Headless Ghost with Next.js on Fission](#headless-ghost-with-nextjs-on-fission)
   - [✨&nbsp;&nbsp;Getting Started](#getting-started)
     - [👻&nbsp;&nbsp;Setting Up Ghost](#setting-up-ghost)
-      - [Public or Local Ghost?](#public-or-local-ghost)
+      - [Cloud or Local Ghost?](#cloud-or-local-ghost)
       - [Setting Up Local Ghost](#setting-up-local-ghost)
+      - [Setting Up Cloud Ghost](#setting-up-cloud-ghost)
       - [Exposing the Ghost Content API](#exposing-the-ghost-content-api)
     - [💻&nbsp;&nbsp;Running Next.js Locally](#running-nextjs-locally)
     - [🌐&nbsp;&nbsp;Deploying to Fission](#deploying-to-fission)
@@ -64,7 +65,7 @@ current directory is the root of the cloned repo.
 
 ### 👻&nbsp;&nbsp;Setting Up Ghost
 
-#### Public or Local Ghost?
+#### Cloud or Local Ghost?
 
 Running a local Ghost instance is good for testing. But also, if you have no
 need for a Ghost instance running all the time out on the internet (for
@@ -97,6 +98,18 @@ at http://localhost:3001.
 Next you need to create an admin account on your newly-created Ghost. To do
 that, visit the admin interface at http://localhost:3001/ghost and follow the
 wizard.
+
+#### Setting Up Cloud Ghost
+
+![Screencast demoing deployment to Heroku](https://github.com/agentofuser/gifs/raw/main/fission/fission-heroku-ipfs-ghost-2x.gif)
+
+You can deploy a Ghost instance to Heroku using Fission's own starter (it's
+what we use for our blog) at
+https://github.com/fission-suite/heroku-ipfs-ghost.
+
+Besides being a very low-friction and zero-cost way to get started with Ghost,
+our starter comes with built-in support for hosting media files on IPFS via
+Fission, no extra configuration required.
 
 #### Exposing the Ghost Content API
 
@@ -250,7 +263,7 @@ to access the URL** entered in the `GHOST_API_URL` secret.
 If you are running a local Ghost instance on your machine,
 `http://localhost:3001` won't be visible to the outside.
 
-A simple way of exposing your local Ghost instance to a publicly-accessible URL
+A simple way of exposing your local Ghost instance to a publicly-reachable URL
 is by using one of the
 [open source alternatives to ngrok](https://github.com/anderspitman/awesome-tunneling)
 or [ngrok](https://ngrok.com/) itself.
